@@ -294,7 +294,7 @@ const AdminPage = () => {
                       <span className="opacity-40">—</span>
                     )}
                   </td>
-                  <td className="max-w-[12rem] truncate text-sm opacity-70">
+                  <td className="max-w-48 truncate text-sm opacity-70">
                     {b.note || ""}
                   </td>
                   <td className="text-right">
