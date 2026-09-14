@@ -4,6 +4,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Spinner from "./components/Spinner";
 import { useAuth } from "./context/AuthContext";
 import AdminPage from "./pages/AdminPage";
+import ChangePasswordPage from "./pages/ChangePasswordPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import MyBookingsPage from "./pages/MyBookingsPage";
@@ -40,6 +41,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <MyBookingsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/change-password"
+          element={
+            <ProtectedRoute>
+              <ChangePasswordPage />
             </ProtectedRoute>
           }
         />

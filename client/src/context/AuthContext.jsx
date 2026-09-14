@@ -48,6 +48,15 @@ export const AuthProvider = ({ children }) => {
     return data;
   };
 
+  // The response lacks isAdmin, so don't overwrite `user` with it.
+  const updatePassword = async (currentPassword, newPassword) => {
+    const { data } = await axiosInstance.post("/auth/update-password", {
+      currentPassword,
+      newPassword,
+    });
+    return data;
+  };
+
   const logout = async () => {
     try {
       await axiosInstance.post("/auth/logout");
@@ -58,7 +67,15 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, isCheckingAuth, login, signup, logout, checkAuth }}
+      value={{
+        user,
+        isCheckingAuth,
+        login,
+        signup,
+        logout,
+        checkAuth,
+        updatePassword,
+      }}
     >
       {children}
     </AuthContext.Provider>

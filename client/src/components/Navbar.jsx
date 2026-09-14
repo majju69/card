@@ -35,6 +35,9 @@ const Navbar = () => {
             Admin
           </NavLink>
         )}
+        <NavLink to="/change-password" className={linkClass}>
+          Password
+        </NavLink>
 
         <div className="divider divider-horizontal mx-1" />
 
