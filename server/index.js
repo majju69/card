@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import authRoutes from "./routes/auth.route.js";
 import bookingRoutes from "./routes/booking.route.js";
+import userRoutes from "./routes/user.route.js";
 import path from "path";
 
 import { connectDB } from "./lib/db.js";
@@ -11,7 +12,7 @@ import morgan from "morgan";
 
 dotenv.config();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const __dirname = path.resolve();
 
 const app = express();
@@ -28,6 +29,7 @@ app.use(morgan("dev"));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/bookings", bookingRoutes);
+app.use("/api/users", userRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/dist")));
